@@ -6,7 +6,34 @@
         xmlns:local="clr-namespace:Daniel_Kasprow_lista_4"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
+    <Window.Background>
+        <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+            <GradientStop Color="LightCyan" Offset="1"/>
+            <GradientStop Color="Red"/>
+        </LinearGradientBrush>
+    </Window.Background>
+    <Grid Name="view">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="5*" />
+            <RowDefinition Height="*"/>
+
+        </Grid.RowDefinitions>
+        <ListBox Name="listaimie" Grid.Column="0" Grid.Row="1"></ListBox>
+        <ListBox Name="listanazwisko" Grid.Column="1" Grid.Row="1"></ListBox>
+        <ListBox Name="listapesel" Grid.Column="2" Grid.Row="1"></ListBox>
+        <Label Content="Imie" Grid.Column="0" Grid.Row="0" FontSize="25" VerticalAlignment="Center" HorizontalAlignment="Center" ></Label>
+        <Label Content="Nazwisko" Grid.Column="1" Grid.Row="0" FontSize="25" VerticalAlignment="Center" HorizontalAlignment="Center"></Label>
+        <Label Content="Pesel" Grid.Column="2" Grid.Row="0" FontSize="25" VerticalAlignment="Center" HorizontalAlignment="Center"></Label>
+
+        <Button Content="Dodaj" Grid.Column="2" Grid.Row="2" FontSize="25" Name="buttonDodaj" Click="ButtonDodaj_Click"></Button>
+        <Button Content="Wczytaj" Grid.Column="1" Grid.Row="2" FontSize="25" Name="buttonwczytaj" Click="ButtonWczytaj_Click"></Button>
+        <Button Content="Zapisz" Grid.Column="0" Grid.Row="2" FontSize="25" Name="buttonZapisz" Click="ButtonZapisz_Click"></Button>
     </Grid>
 </Window>
+
