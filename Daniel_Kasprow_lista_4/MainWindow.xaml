@@ -19,18 +19,24 @@
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
             <RowDefinition Height="5*" />
             <RowDefinition Height="*"/>
 
         </Grid.RowDefinitions>
-        <ListBox Name="listaimie" Grid.Column="0" Grid.Row="1"></ListBox>
-        <ListBox Name="listanazwisko" Grid.Column="1" Grid.Row="1"></ListBox>
-        <ListBox Name="listapesel" Grid.Column="2" Grid.Row="1"></ListBox>
-        <Label Content="Imie" Grid.Column="0" Grid.Row="0" FontSize="25" VerticalAlignment="Center" HorizontalAlignment="Center" ></Label>
-        <Label Content="Nazwisko" Grid.Column="1" Grid.Row="0" FontSize="25" VerticalAlignment="Center" HorizontalAlignment="Center"></Label>
-        <Label Content="Pesel" Grid.Column="2" Grid.Row="0" FontSize="25" VerticalAlignment="Center" HorizontalAlignment="Center"></Label>
-
+        <ListView Name="Persons" Grid.ColumnSpan="3">
+        <ListView.View>
+                <GridView AllowsColumnReorder="True">
+            <GridView.Columns>
+                        <GridViewColumn Header="Imie"
+                                DisplayMemberBinding="{Binding imie, Mode=TwoWay}"/>
+                        <GridViewColumn Header="Nazwisko"
+                                DisplayMemberBinding="{Binding nazwisko, Mode=TwoWay}"/>
+                        <GridViewColumn Header="Pesel"
+                                DisplayMemberBinding="{Binding pesel, Mode=TwoWay}"/>
+                    </GridView.Columns>
+                </GridView>
+        </ListView.View>
+        </ListView>
         <Button Content="Dodaj" Grid.Column="2" Grid.Row="2" FontSize="25" Name="buttonDodaj" Click="ButtonDodaj_Click"></Button>
         <Button Content="Wczytaj" Grid.Column="1" Grid.Row="2" FontSize="25" Name="buttonwczytaj" Click="ButtonWczytaj_Click"></Button>
         <Button Content="Zapisz" Grid.Column="0" Grid.Row="2" FontSize="25" Name="buttonZapisz" Click="ButtonZapisz_Click"></Button>

@@ -41,7 +41,7 @@ namespace Daniel_Kasprow_lista_4
                 {
                     kln = new Pacjent(Textimie.Text, TextNazwisko.Text, Convert.ToInt64(Textpesel.Text));
                     MainWindow.klient.Add(kln);
-                    mainwindow.refresh();
+                   // mainwindow.refresh();
                     this.Hide();
                 }
                 else MessageBox.Show("zla dlugosc pesela");

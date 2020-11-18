@@ -12,14 +12,15 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+
 namespace Daniel_Kasprow_lista_4
 {
     public class Pacjent
     {
-        public string imie;
-        public string nazwisko;
+        public string imie { get; set; }
+        public string nazwisko { get; set; }
 
-        public long pesel;
+        public long pesel { get; set; }
 
         public Pacjent()
         {
@@ -28,30 +29,11 @@ namespace Daniel_Kasprow_lista_4
             pesel = 0;
         }
 
-        public Pacjent(string imie, string nazwisko, long pesel)
+        public Pacjent(string nimie, string nnazwisko, long npesel)
         {
-            this.imie = imie;
-            this.nazwisko = nazwisko;
-            this.pesel = pesel;
-        }
-
-        public void Writeimie(ListBox lp)
-        {
-            lp.Items.Add(imie);
-            //lp.Items.Add(nazwisko);
-            //lp.Items.Add(pesel);
-        }
-        public void Writenazwisko(ListBox lp)
-        {
-            //lp.Items.Add(imie);
-            lp.Items.Add(nazwisko);
-            //lp.Items.Add(pesel);
-        }
-        public void Writepesel(ListBox lp)
-        {
-            //lp.Items.Add(imie);
-            //lp.Items.Add(nazwisko);
-            lp.Items.Add(pesel);
+            imie = nimie;
+            nazwisko = nnazwisko;
+            pesel = npesel;
         }
     }
 }

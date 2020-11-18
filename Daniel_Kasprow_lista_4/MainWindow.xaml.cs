@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Xml.Serialization;
 
@@ -22,7 +23,8 @@ namespace Daniel_Kasprow_lista_4
     /// </summary>
         partial class MainWindow : Window
         {
-            public static List<Pacjent> klient = new List<Pacjent>();
+
+        public static ObservableCollection<Pacjent> klient = new ObservableCollection<Pacjent>();
 
             Pacjent kln;
             AddPacjent addPacjent = new AddPacjent();
@@ -33,46 +35,27 @@ namespace Daniel_Kasprow_lista_4
             {
                 InitializeComponent();
                 addPacjent = new AddPacjent(this);
-                refresh();
-                if (klient.Count > 0)
-                {
-                    klient[0].Writeimie(listaimie);
-                    klient[0].Writenazwisko(listanazwisko);
-                    klient[0].Writepesel(listapesel);
-                }
-            }
+                initializeBinding();
+        }
 
-            public void refresh()
-            {
-                listaimie.Items.Clear();
-                listanazwisko.Items.Clear();
-                listapesel.Items.Clear();
-                // i = 0;
-                foreach (Pacjent c in klient)
-                {
-                    c.Writeimie(listaimie);
-                    c.Writenazwisko(listanazwisko);
-                    c.Writepesel(listapesel);
-                }
-                /*  try
-                  {
-                      do
-                      {
-                          klient[i].Writeimie(listaimie);
-                          klient[i].Writenazwisko(listanazwisko);
-                          klient[i].Writepesel(listapesel);
-                          i++;
-                      }
-                      while (i >= 0);
-                  }
-                  catch { }*/
-            }
+        private void initializeBinding()
+        {
+            klient = new ObservableCollection<Pacjent>();
+            klient.Add(new Pacjent("Jan", "Kowalski", 25));
+            Persons.ItemsSource = klient;
+        }
 
-            public void savefile()
+        public void refresh()
+        {
+            Persons.ItemsSource = "";
+            Persons.ItemsSource = klient;
+        }
+
+        public void savefile()
             {
                 Stream stream = File.Create(Environment.CurrentDirectory + "\\myText.txt");
 
-                XmlSerializer xmlSer = new XmlSerializer(typeof(List<Pacjent>));
+                XmlSerializer xmlSer = new XmlSerializer(typeof(ObservableCollection<Pacjent>));
 
                 xmlSer.Serialize(stream, klient);
 
@@ -87,9 +70,9 @@ namespace Daniel_Kasprow_lista_4
                 }
                 FileStream stream = File.OpenRead(Environment.CurrentDirectory + "\\myText.txt");
 
-                XmlSerializer xmlSer = new XmlSerializer(typeof(List<Pacjent>));
+                XmlSerializer xmlSer = new XmlSerializer(typeof(ObservableCollection<Pacjent>));
 
-                klient = (List<Pacjent>)xmlSer.Deserialize(stream);
+                klient = (ObservableCollection<Pacjent>)xmlSer.Deserialize(stream);
                 stream.Close();
                 refresh();
             }
