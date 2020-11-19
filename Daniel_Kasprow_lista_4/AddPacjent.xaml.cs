@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.IO;
+using Microsoft.Win32;
 
 namespace Daniel_Kasprow_lista_4
 {
@@ -23,6 +25,7 @@ namespace Daniel_Kasprow_lista_4
 
         MainWindow mainwindow;
 
+        string picture = "C:\\Users\\Daniel\\Desktop\\pliki\\Różne\\MINECRAFT\\maxresdefault.jpg";
         public AddPacjent()
         {
             InitializeComponent();
@@ -37,11 +40,21 @@ namespace Daniel_Kasprow_lista_4
         {
             try
             {
+                OpenFileDialog openFileDialog = new OpenFileDialog();
+                {
+                    openFileDialog.Title = "Select picture of patient";
+                    openFileDialog.Filter = "Image files(*.jpg, *.jpeg, *.jpe, *.jfif, *.png) | *.jpg; *.jpeg; *.jpe; *.jfif; *.png";
+                    openFileDialog.InitialDirectory = Environment.CurrentDirectory;
+                    openFileDialog.Multiselect = false;
+                }
+                if (openFileDialog.ShowDialog() == true)
+                {
+                    picture = openFileDialog.FileName;
+                }
                 if (Convert.ToInt64(Textpesel.Text) > 9999999999 && Convert.ToInt64(Textpesel.Text) <= 99999999999)
                 {
-                    kln = new Pacjent(Textimie.Text, TextNazwisko.Text, Convert.ToInt64(Textpesel.Text));
+                    kln = new Pacjent(Textimie.Text, TextNazwisko.Text, Convert.ToInt64(Textpesel.Text),picture);
                     MainWindow.klient.Add(kln);
-                   // mainwindow.refresh();
                     this.Hide();
                 }
                 else MessageBox.Show("zla dlugosc pesela");

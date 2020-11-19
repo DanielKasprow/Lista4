@@ -41,7 +41,7 @@ namespace Daniel_Kasprow_lista_4
         private void initializeBinding()
         {
             klient = new ObservableCollection<Pacjent>();
-            klient.Add(new Pacjent("Jan", "Kowalski", 25));
+           // klient.Add(new Pacjent("Jan", "Kowalski", 25));
             Persons.ItemsSource = klient;
         }
 

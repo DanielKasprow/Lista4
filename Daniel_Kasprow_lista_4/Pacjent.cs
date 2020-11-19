@@ -43,13 +43,14 @@ namespace Daniel_Kasprow_lista_4
             }
         }
 
-        public Pacjent(string nimie, string nnazwisko, long npesel)
+        public Pacjent(string nimie, string nnazwisko, long npesel, string nobraz)
         {
             imie = nimie;
             nazwisko = nnazwisko;
             pesel = npesel;
+            //obraz = nobraz;
             obraz.BeginInit();
-            obraz.UriSource = new Uri("C:\\Users\\Daniel\\Desktop\\pliki\\Różne\\MINECRAFT\\maxresdefault.jpg", UriKind.Absolute);
+            obraz.UriSource = new Uri(nobraz, UriKind.Absolute);
             obraz.EndInit();
         }
     }

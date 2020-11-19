@@ -36,8 +36,8 @@
                         <GridViewColumn>
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <StackPanel Orientation="Horizontal">
-                                    <Image Width="100" Height="100" Source="{Binding IconUrl}"/>
+                                <StackPanel Orientation="Horizontal" >
+                                    <Image  Width="25" Height="25" Source="{Binding IconUrl}"/>
                                 </StackPanel>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
