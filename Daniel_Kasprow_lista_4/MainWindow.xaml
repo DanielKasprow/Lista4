@@ -33,6 +33,15 @@
                                 DisplayMemberBinding="{Binding nazwisko, Mode=TwoWay}"/>
                         <GridViewColumn Header="Pesel"
                                 DisplayMemberBinding="{Binding pesel, Mode=TwoWay}"/>
+                        <GridViewColumn>
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <Image Width="100" Height="100" Source="{Binding IconUrl}"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
                     </GridView.Columns>
                 </GridView>
         </ListView.View>

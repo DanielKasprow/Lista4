@@ -22,11 +22,25 @@ namespace Daniel_Kasprow_lista_4
 
         public long pesel { get; set; }
 
-        public Pacjent()
+        private BitmapImage obraz = new BitmapImage();
+
+       /* public Pacjent()
         {
             imie = "...";
             nazwisko = "...";
             pesel = 0;
+        }*/
+
+        public Uri IconUrl
+        {
+            get
+            {
+                return obraz.UriSource;
+            }
+            set
+            {
+                obraz.UriSource = value;
+            }
         }
 
         public Pacjent(string nimie, string nnazwisko, long npesel)
@@ -34,6 +48,9 @@ namespace Daniel_Kasprow_lista_4
             imie = nimie;
             nazwisko = nnazwisko;
             pesel = npesel;
+            obraz.BeginInit();
+            obraz.UriSource = new Uri("C:\\Users\\Daniel\\Desktop\\pliki\\Różne\\MINECRAFT\\maxresdefault.jpg", UriKind.Absolute);
+            obraz.EndInit();
         }
     }
 }
