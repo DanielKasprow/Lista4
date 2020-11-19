@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Daniel_Kasprow_lista_4"
         mc:Ignorable="d"
-        Title="AddPacjent" Height="450" Width="800">
+        Title="AddPacjent" Height="450" Width="1000">
     <Window.Background>
         <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
             <GradientStop Color="LightCyan" Offset="1"/>
@@ -17,23 +17,43 @@
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*" />
             <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         <Label Grid.Row="0" Grid.Column="0" Content="Imie" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="20"></Label>
-        <TextBox Grid.Row="0" Grid.Column="0" Name="Textimie" Height="25" Width="200"></TextBox>
+        <TextBox Grid.Row="0" Grid.Column="0" Name="TextImie" Height="25" Width="200"></TextBox>
 
         <Label Grid.Row="0" Grid.Column="1" Content="Nazwisko" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="20"></Label>
         <TextBox Grid.Row="0" Grid.Column="1" Name="TextNazwisko" Height="25" Width="200"></TextBox>
 
-        <Label Grid.Row="0" Grid.Column="2" Content="Pesel" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="20"></Label>
-        <TextBox Grid.Row="0" Grid.Column="2" Name="Textpesel" Height="25" Width="200"></TextBox>
+        <Label Grid.Row="1" Grid.Column="0" Content="Miasto" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="20"></Label>
+        <TextBox Grid.Row="1" Grid.Column="0" Name="TextMiasto" Height="25" Width="200"></TextBox>
 
-        <Label Grid.Row="1" Grid.Column="1" Content="Dodaj" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="20"></Label>
-        <Button Grid.Row="1" Grid.Column="1" Height="50" Width="150" Click="Button_Click"></Button>
+        <Label Grid.Row="0" Grid.Column="2" Content="Ulica" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="20"></Label>
+        <TextBox Grid.Row="0" Grid.Column="2" Name="TextUlica" Height="25" Width="200"></TextBox>
+
+        <Label Grid.Row="0" Grid.Column="3" Content="NR" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="20"></Label>
+        <TextBox Grid.Row="0" Grid.Column="3" Name="TextNr" Height="25" Width="200"></TextBox>
+
+        <Label Grid.Row="1" Grid.Column="1" Content="Kraj" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="20"></Label>
+        <TextBox Grid.Row="1" Grid.Column="1" Name="TextKraj" Height="25" Width="200"></TextBox>
+
+        <Label Grid.Row="1" Grid.Column="2" Content="Wiek" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="20"></Label>
+        <TextBox Grid.Row="1" Grid.Column="2" Name="TextWiek" Height="25" Width="200"></TextBox>
+
+        <Label Grid.Row="1" Grid.Column="3" Content="Pesel" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="20"></Label>
+        <TextBox Grid.Row="1" Grid.Column="3" Name="TextPesel" Height="25" Width="200"></TextBox>
+        
+        
+
+        <Label Grid.Row="2" Grid.Column="2" Content="Dodaj" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="20"></Label>
+        <Button Grid.Row="2" Grid.Column="2" Height="50" Width="150" Click="Button_Click"></Button>
 
     </Grid>
 </Window>

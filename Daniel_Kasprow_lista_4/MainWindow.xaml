@@ -31,13 +31,23 @@
                                 DisplayMemberBinding="{Binding imie, Mode=TwoWay}"/>
                         <GridViewColumn Header="Nazwisko"
                                 DisplayMemberBinding="{Binding nazwisko, Mode=TwoWay}"/>
+                        <GridViewColumn Header="Ulica"
+                                DisplayMemberBinding="{Binding ulica, Mode=TwoWay}"/>
+                        <GridViewColumn Header="Nr Uicy"
+                                DisplayMemberBinding="{Binding nr, Mode=TwoWay}"/>
+                        <GridViewColumn Header="Miasto"
+                                DisplayMemberBinding="{Binding miasto, Mode=TwoWay}"/>
+                        <GridViewColumn Header="Kraj"
+                                DisplayMemberBinding="{Binding kraj, Mode=TwoWay}"/>
+                        <GridViewColumn Header="Wiek"
+                                DisplayMemberBinding="{Binding wiek, Mode=TwoWay}"/>
                         <GridViewColumn Header="Pesel"
                                 DisplayMemberBinding="{Binding pesel, Mode=TwoWay}"/>
-                        <GridViewColumn>
-                        <GridViewColumn.CellTemplate>
-                            <DataTemplate>
+                        <GridViewColumn Header="Zdjecie">
+                        <GridViewColumn.CellTemplate >
+                            <DataTemplate >
                                 <StackPanel Orientation="Horizontal" >
-                                    <Image  Width="25" Height="25" Source="{Binding IconUrl}"/>
+                                    <Image  Width="25" Height="25" Source="{Binding IconUrl}" />
                                 </StackPanel>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>

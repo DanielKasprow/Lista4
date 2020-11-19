@@ -19,19 +19,27 @@ namespace Daniel_Kasprow_lista_4
     {
         public string imie { get; set; }
         public string nazwisko { get; set; }
+        public string ulica { get; set; }
+        public string miasto { get; set; }
+        public string kraj { get; set; }
 
         public long pesel { get; set; }
+        public long nr { get; set; }
+        public long wiek { get; set; }
 
-        private BitmapImage obraz = new BitmapImage();
+      /*  public BitmapImage obraz = new BitmapImage();
 
-       /* public Pacjent()
-        {
-            imie = "...";
-            nazwisko = "...";
-            pesel = 0;
-        }*/
+        public Uri uri { get; set; }*/
 
-        public Uri IconUrl
+
+        /* public Pacjent()
+         {
+             imie = "...";
+             nazwisko = "...";
+             pesel = 0;
+         }*/
+
+       /* public Uri IconUrl
         {
             get
             {
@@ -41,17 +49,23 @@ namespace Daniel_Kasprow_lista_4
             {
                 obraz.UriSource = value;
             }
-        }
+        }*/
 
-        public Pacjent(string nimie, string nnazwisko, long npesel, string nobraz)
+        public Pacjent(string nimie, string nnazwisko,string nulica,string nmiasto,string nkraj,long nnr,long nwiek, long npesel/*, Uri nobraz*/)
         {
             imie = nimie;
             nazwisko = nnazwisko;
+            ulica = nulica;
+            miasto = nmiasto;
+            kraj = nkraj;
+            nr = nnr;
+            wiek = nwiek;
             pesel = npesel;
-            //obraz = nobraz;
+           /* uri = nobraz;
+
             obraz.BeginInit();
-            obraz.UriSource = new Uri(nobraz, UriKind.Absolute);
-            obraz.EndInit();
+            obraz.UriSource = uri;
+            obraz.EndInit();*/
         }
     }
 }
