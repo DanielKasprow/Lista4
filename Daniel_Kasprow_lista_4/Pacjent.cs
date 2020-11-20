@@ -28,6 +28,8 @@ namespace Daniel_Kasprow_lista_4
         public string miasto { get; set; }
         public string kraj { get; set; }
 
+        public string picture { get; set; }
+
         public long pesel { get; set; }
         public long nr { get; set; }
         public long wiek { get; set; }
@@ -71,7 +73,7 @@ namespace Daniel_Kasprow_lista_4
                 }
             }
         }
- 
+        
         //protected Uri(System.Runtime.Serialization.SerializationInfo serializationInfo, System.Runtime.Serialization.StreamingContext streamingContext);
 
         public Pacjent(string nimie, string nnazwisko,string nulica,string nmiasto,string nkraj,long nnr,long nwiek, long npesel, string nobraz)
@@ -84,6 +86,7 @@ namespace Daniel_Kasprow_lista_4
             nr = nnr;
             wiek = nwiek;
             pesel = npesel;
+            picture = nobraz;
            //uri = new Uri (nobraz,UriKind.Absolute);
 
             obraz = new BitmapImage();

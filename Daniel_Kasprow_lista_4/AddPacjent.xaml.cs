@@ -25,8 +25,8 @@ namespace Daniel_Kasprow_lista_4
 
         MainWindow mainwindow;
 
-        string picture = "C:\\Users\\Daniel\\Desktop\\pliki\\Różne\\MINECRAFT\\maxresdefault.jpg";
-        Uri uri;
+        private string picture;
+       // Uri uri;
         public AddPacjent()
         {
             InitializeComponent();
@@ -51,7 +51,7 @@ namespace Daniel_Kasprow_lista_4
                 if (openFileDialog.ShowDialog() == true)
                 {
                     picture = openFileDialog.FileName;
-                    uri = new Uri(picture, UriKind.Absolute);
+                    //uri = new Uri(picture, UriKind.Absolute);
                 }
                 if (Convert.ToInt64(TextPesel.Text) > 9999999999 && Convert.ToInt64(TextPesel.Text) <= 99999999999)
                 {
@@ -66,7 +66,18 @@ namespace Daniel_Kasprow_lista_4
                 MessageBox.Show("nr ulicy,wiek i pesel musi byc liczba");
             }
         }
-
+        public void refresh()
+        {
+            TextImie.Text = "";
+            TextNazwisko.Text = "";
+            TextUlica.Text = "";
+            TextNr.Text = "";
+            TextMiasto.Text = "";
+            TextNazwisko.Text = "";
+            TextKraj.Text = "";
+            TextWiek.Text = "";
+            TextPesel.Text = "";
+        }
     }
  }
 

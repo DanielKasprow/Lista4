@@ -28,11 +28,14 @@ namespace Daniel_Kasprow_lista_4
         public static ObservableCollection<Pacjent> klient = new ObservableCollection<Pacjent>();
 
             AddPacjent addPacjent = new AddPacjent();
+            ChangePacjent changePacjent = new ChangePacjent();
 
+        public int i = 0;
             public MainWindow()
             {
                 InitializeComponent();
                 addPacjent = new AddPacjent(this);
+            changePacjent = new ChangePacjent(this);
                 initializeBinding();
         }
 
@@ -51,11 +54,8 @@ namespace Daniel_Kasprow_lista_4
         public void savefile()
             {
                 Stream stream = File.Create(Environment.CurrentDirectory + "\\myText.txt");
-            {
-             //   BinaryFormatter formatter = new BinaryFormatter();
-             //   formatter.Serialize(stream, klient);
-            }
-            XmlSerializer xmlSer = new XmlSerializer(typeof(ObservableCollection<Pacjent>));
+ 
+                XmlSerializer xmlSer = new XmlSerializer(typeof(ObservableCollection<Pacjent>));
 
                 xmlSer.Serialize(stream, klient);
 
@@ -69,11 +69,8 @@ namespace Daniel_Kasprow_lista_4
                     savefile();
                 }
                 FileStream stream = File.OpenRead(Environment.CurrentDirectory + "\\myText.txt");
-            {
-             //   BinaryFormatter formatter = new BinaryFormatter();
-             //   formatter.Serialize(stream, klient);
-            }
-            XmlSerializer xmlSer = new XmlSerializer(typeof(ObservableCollection<Pacjent>));
+
+                XmlSerializer xmlSer = new XmlSerializer(typeof(ObservableCollection<Pacjent>));
 
                 klient = (ObservableCollection<Pacjent>)xmlSer.Deserialize(stream);
                 stream.Close();
@@ -81,6 +78,7 @@ namespace Daniel_Kasprow_lista_4
             }
             private void ButtonDodaj_Click(object sender, RoutedEventArgs e)
             {
+                addPacjent.refresh();
                 addPacjent.Show();
             }
 
@@ -93,6 +91,20 @@ namespace Daniel_Kasprow_lista_4
             {
                 openfile();
             }
+
+        private void ButtonChange_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                i = Persons.SelectedIndex;
+                changePacjent.refresh();
+                changePacjent.Show();
+            }
+            catch
+            {
+                MessageBox.Show("Nie wybrano osoby");
+            }
         }
+    }
     }
 
