@@ -12,9 +12,14 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.Runtime.Serialization;
+using System.Xml.Serialization;
+using System.IO;
 
 namespace Daniel_Kasprow_lista_4
 {
+    [Serializable]
     public class Pacjent
     {
         public string imie { get; set; }
@@ -27,31 +32,49 @@ namespace Daniel_Kasprow_lista_4
         public long nr { get; set; }
         public long wiek { get; set; }
 
-      /*  public BitmapImage obraz = new BitmapImage();
+        [XmlIgnore]
+        public BitmapImage obraz = new BitmapImage();
 
-        public Uri uri { get; set; }*/
+        //public Uri uri { get; set; }
 
-
-        /* public Pacjent()
-         {
-             imie = "...";
-             nazwisko = "...";
-             pesel = 0;
-         }*/
-
-       /* public Uri IconUrl
+        [XmlElement("LargeIcon")]
+        //[XmlIgnore]
+        public byte[] IconUrl
         {
             get
-            {
-                return obraz.UriSource;
+            { // serialize
+                if (obraz == null) return null;
+                JpegBitmapEncoder encoder = new JpegBitmapEncoder();
+                encoder.Frames.Add(BitmapFrame.Create(obraz));
+                using (MemoryStream ms = new MemoryStream())
+                {
+                    encoder.Save(ms);
+                    return ms.ToArray();
+                }
             }
             set
-            {
-                obraz.UriSource = value;
+            { // deserialize
+                if (value == null)
+                {
+                    obraz = null;
+                }
+                else
+                {
+                    using (MemoryStream ms = new MemoryStream(value))
+                    {
+                        obraz = new BitmapImage();
+                        obraz.BeginInit();
+                        obraz.CacheOption = BitmapCacheOption.OnLoad;
+                        obraz.StreamSource = ms;
+                        obraz.EndInit();
+                    }
+                }
             }
-        }*/
+        }
+ 
+        //protected Uri(System.Runtime.Serialization.SerializationInfo serializationInfo, System.Runtime.Serialization.StreamingContext streamingContext);
 
-        public Pacjent(string nimie, string nnazwisko,string nulica,string nmiasto,string nkraj,long nnr,long nwiek, long npesel/*, Uri nobraz*/)
+        public Pacjent(string nimie, string nnazwisko,string nulica,string nmiasto,string nkraj,long nnr,long nwiek, long npesel, string nobraz)
         {
             imie = nimie;
             nazwisko = nnazwisko;
@@ -61,11 +84,15 @@ namespace Daniel_Kasprow_lista_4
             nr = nnr;
             wiek = nwiek;
             pesel = npesel;
-           /* uri = nobraz;
+           //uri = new Uri (nobraz,UriKind.Absolute);
 
+            obraz = new BitmapImage();
             obraz.BeginInit();
-            obraz.UriSource = uri;
-            obraz.EndInit();*/
+            obraz.UriSource = new Uri(nobraz, UriKind.Absolute);
+            obraz.EndInit();
+        }
+        public Pacjent()
+        {
         }
     }
 }

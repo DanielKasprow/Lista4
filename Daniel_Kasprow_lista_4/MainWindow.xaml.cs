@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using System.Collections.ObjectModel;
 using System.IO;
 using System.Xml.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace Daniel_Kasprow_lista_4
 {
@@ -26,10 +27,7 @@ namespace Daniel_Kasprow_lista_4
 
         public static ObservableCollection<Pacjent> klient = new ObservableCollection<Pacjent>();
 
-            Pacjent kln;
             AddPacjent addPacjent = new AddPacjent();
-
-            private int i = 0;
 
             public MainWindow()
             {
@@ -41,7 +39,6 @@ namespace Daniel_Kasprow_lista_4
         private void initializeBinding()
         {
             klient = new ObservableCollection<Pacjent>();
-           // klient.Add(new Pacjent("Jan", "Kowalski", 25));
             Persons.ItemsSource = klient;
         }
 
@@ -54,8 +51,11 @@ namespace Daniel_Kasprow_lista_4
         public void savefile()
             {
                 Stream stream = File.Create(Environment.CurrentDirectory + "\\myText.txt");
-
-                XmlSerializer xmlSer = new XmlSerializer(typeof(ObservableCollection<Pacjent>));
+            {
+             //   BinaryFormatter formatter = new BinaryFormatter();
+             //   formatter.Serialize(stream, klient);
+            }
+            XmlSerializer xmlSer = new XmlSerializer(typeof(ObservableCollection<Pacjent>));
 
                 xmlSer.Serialize(stream, klient);
 
@@ -69,8 +69,11 @@ namespace Daniel_Kasprow_lista_4
                     savefile();
                 }
                 FileStream stream = File.OpenRead(Environment.CurrentDirectory + "\\myText.txt");
-
-                XmlSerializer xmlSer = new XmlSerializer(typeof(ObservableCollection<Pacjent>));
+            {
+             //   BinaryFormatter formatter = new BinaryFormatter();
+             //   formatter.Serialize(stream, klient);
+            }
+            XmlSerializer xmlSer = new XmlSerializer(typeof(ObservableCollection<Pacjent>));
 
                 klient = (ObservableCollection<Pacjent>)xmlSer.Deserialize(stream);
                 stream.Close();

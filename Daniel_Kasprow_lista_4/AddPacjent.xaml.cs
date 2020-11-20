@@ -55,7 +55,7 @@ namespace Daniel_Kasprow_lista_4
                 }
                 if (Convert.ToInt64(TextPesel.Text) > 9999999999 && Convert.ToInt64(TextPesel.Text) <= 99999999999)
                 {
-                    kln = new Pacjent(TextImie.Text, TextNazwisko.Text,TextUlica.Text,TextUlica.Text,TextKraj.Text,Convert.ToInt32(TextNr.Text),Convert.ToInt32(TextWiek.Text), Convert.ToInt64(TextPesel.Text)/*,uri*/);
+                    kln = new Pacjent(TextImie.Text, TextNazwisko.Text,TextUlica.Text,TextUlica.Text,TextKraj.Text,Convert.ToInt32(TextNr.Text),Convert.ToInt32(TextWiek.Text), Convert.ToInt64(TextPesel.Text),picture);
                     MainWindow.klient.Add(kln);
                     this.Hide();
                 }
