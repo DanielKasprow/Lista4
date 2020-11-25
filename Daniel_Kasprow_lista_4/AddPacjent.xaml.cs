@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.IO;
 using Microsoft.Win32;
+using System.Text.RegularExpressions;
 
 namespace Daniel_Kasprow_lista_4
 {
@@ -30,6 +31,7 @@ namespace Daniel_Kasprow_lista_4
         public AddPacjent()
         {
             InitializeComponent();
+            TextPesel.MaxLength = 11;
         }
 
         public AddPacjent(MainWindow mainwindow) : this()
@@ -51,9 +53,8 @@ namespace Daniel_Kasprow_lista_4
                 if (openFileDialog.ShowDialog() == true)
                 {
                     picture = openFileDialog.FileName;
-                    //uri = new Uri(picture, UriKind.Absolute);
                 }
-                if (Convert.ToInt64(TextPesel.Text) > 9999999999 && Convert.ToInt64(TextPesel.Text) <= 99999999999)
+                if (TextPesel.Text.Length == 11)
                 {
                     kln = new Pacjent(TextImie.Text, TextNazwisko.Text,TextUlica.Text,TextUlica.Text,TextKraj.Text,Convert.ToInt32(TextNr.Text),Convert.ToInt32(TextWiek.Text), Convert.ToInt64(TextPesel.Text),picture);
                     MainWindow.klient.Add(kln);
@@ -77,6 +78,14 @@ namespace Daniel_Kasprow_lista_4
             TextKraj.Text = "";
             TextWiek.Text = "";
             TextPesel.Text = "";
+        }
+        private void TextIntinput(object sender, TextCompositionEventArgs e)
+        {
+            e.Handled = new Regex("[^0-9]+").IsMatch(e.Text);
+        }
+        private void TextStringinput(object sender,TextCompositionEventArgs e)
+        {
+            e.Handled = new Regex("[^A-z]+").IsMatch(e.Text);
         }
     }
  }

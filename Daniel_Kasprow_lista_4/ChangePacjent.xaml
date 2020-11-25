@@ -27,28 +27,28 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         <Label Grid.Row="0" Grid.Column="0" Content="Imie" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="20"></Label>
-        <TextBox Grid.Row="0" Grid.Column="0" Name="TextImie" Height="25" Width="200"></TextBox>
+        <TextBox Grid.Row="0" Grid.Column="0" Name="TextImie" Height="25" Width="200" PreviewTextInput="TextStringinput"></TextBox>
 
         <Label Grid.Row="0" Grid.Column="1" Content="Nazwisko" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="20"></Label>
-        <TextBox Grid.Row="0" Grid.Column="1" Name="TextNazwisko" Height="25" Width="200"></TextBox>
+        <TextBox Grid.Row="0" Grid.Column="1" Name="TextNazwisko" Height="25" Width="200" PreviewTextInput="TextStringinput"></TextBox>
 
         <Label Grid.Row="1" Grid.Column="0" Content="Miasto" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="20"></Label>
-        <TextBox Grid.Row="1" Grid.Column="0" Name="TextMiasto" Height="25" Width="200"></TextBox>
+        <TextBox Grid.Row="1" Grid.Column="0" Name="TextMiasto" Height="25" Width="200" PreviewTextInput="TextStringinput"></TextBox>
 
         <Label Grid.Row="0" Grid.Column="2" Content="Ulica" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="20"></Label>
-        <TextBox Grid.Row="0" Grid.Column="2" Name="TextUlica" Height="25" Width="200"></TextBox>
+        <TextBox Grid.Row="0" Grid.Column="2" Name="TextUlica" Height="25" Width="200" PreviewTextInput="TextStringinput"></TextBox>
 
         <Label Grid.Row="0" Grid.Column="3" Content="NR" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="20"></Label>
-        <TextBox Grid.Row="0" Grid.Column="3" Name="TextNr" Height="25" Width="200"></TextBox>
+        <TextBox Grid.Row="0" Grid.Column="3" Name="TextNr" Height="25" Width="200" PreviewTextInput="TextIntinput"></TextBox>
 
         <Label Grid.Row="1" Grid.Column="1" Content="Kraj" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="20"></Label>
-        <TextBox Grid.Row="1" Grid.Column="1" Name="TextKraj" Height="25" Width="200"></TextBox>
+        <TextBox Grid.Row="1" Grid.Column="1" Name="TextKraj" Height="25" Width="200" PreviewTextInput="TextStringinput"></TextBox>
 
         <Label Grid.Row="1" Grid.Column="2" Content="Wiek" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="20"></Label>
-        <TextBox Grid.Row="1" Grid.Column="2" Name="TextWiek" Height="25" Width="200"></TextBox>
+        <TextBox Grid.Row="1" Grid.Column="2" Name="TextWiek" Height="25" Width="200" PreviewTextInput="TextIntinput"></TextBox>
 
         <Label Grid.Row="1" Grid.Column="3" Content="Pesel" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="20"></Label>
-        <TextBox Grid.Row="1" Grid.Column="3" Name="TextPesel" Height="25" Width="200"></TextBox>
+        <TextBox Grid.Row="1" Grid.Column="3" Name="TextPesel" Height="25" Width="200" PreviewTextInput="TextIntinput"></TextBox>
 
         <Image Grid.Row="2" Grid.Column="1"  Width="100" Height="100" Name="Zdjecie" />
 
