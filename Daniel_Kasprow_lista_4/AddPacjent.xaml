@@ -12,6 +12,9 @@
             <GradientStop Color="LightGreen"/>
         </LinearGradientBrush>
     </Window.Background>
+    <Window.DataContext>
+        <local:Registration/>
+    </Window.DataContext>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
@@ -48,8 +51,17 @@
         <TextBox Grid.Row="1" Grid.Column="2" Name="TextWiek" Height="25" Width="200" PreviewTextInput="TextIntinput"></TextBox>
 
         <Label Grid.Row="1" Grid.Column="3" Content="Pesel" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="20"></Label>
-        <TextBox Grid.Row="1" Grid.Column="3" Name="TextPesel" Height="25" Width="200" PreviewTextInput="TextIntinput" ></TextBox>
 
+        <TextBox Grid.Row="1" Grid.Column="3" Name="TextPesel" Height="25" Width="200" Validation.ErrorTemplate="{StaticResource errorTemplate}">
+            <TextBox.Text>
+                <Binding Path="Peselname" ValidatesOnDataErrors="True" UpdateSourceTrigger="PropertyChanged">
+                    <Binding.ValidationRules>
+                        <local:CharacterLengthRule CharacterLength="11"/>
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+        </TextBox>
+        
         <Button Grid.Row="2" Grid.Column="2" Height="50" Width="150" Click="Button_Click" Content="Dodaj" FontSize="20"></Button>
 
     </Grid>

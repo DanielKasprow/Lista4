@@ -31,7 +31,7 @@ namespace Daniel_Kasprow_lista_4
         public AddPacjent()
         {
             InitializeComponent();
-            TextPesel.MaxLength = 11;
+            //TextPesel.MaxLength = 11;
         }
 
         public AddPacjent(MainWindow mainwindow) : this()
